@@ -1,6 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
+import { Get } from '@nestjs/common';
 import { ApiRequestService } from '../services/api-request.service';
-
 @Controller('api-hnews')
 export class ApiHnewsController {
   constructor(private readonly apiRequest: ApiRequestService) {}

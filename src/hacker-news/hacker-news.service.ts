@@ -32,4 +32,7 @@ export class HackerNewsService {
   async findOne(id: string): Promise<HackerNews> {
     return await this.hackerNewsModel.findOne({ title: id });
   }
+  async delete(id: any): Promise<HackerNews> {
+    return await this.hackerNewsModel.findByIdAndRemove(id);
+  }
 }
