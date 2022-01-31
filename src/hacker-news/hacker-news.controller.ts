@@ -1,4 +1,11 @@
-import { Controller, Delete, HttpStatus, NotFoundException, Query, Redirect } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  HttpStatus,
+  NotFoundException,
+  Query,
+  Redirect,
+} from '@nestjs/common';
 import { Get } from '@nestjs/common';
 import { CreatedHackernewsDto } from './dto/hacker-news.dto';
 import { HackerNewsService } from './hacker-news.service';
@@ -7,7 +14,7 @@ import { NotFoundError } from 'rxjs';
 
 @Controller('hacker-news')
 export class HackerNewsController {
-  constructor(private readonly hackerNewsService: HackerNewsService) { }
+  constructor(private readonly hackerNewsService: HackerNewsService) {}
   @Get('/api-hnews')
   async getApiData() {
     const { data } = await this.hackerNewsService.findall().toPromise();
@@ -90,17 +97,18 @@ export class HackerNewsController {
   }
   @Get('/hacker-newsver')
   async getApiDataVer() {
-    
     const hackerNews = await this.hackerNewsService.gethackernews();
     //ordenar hackerNews por fecha de creacion
     const hackerNewsOrdenado = hackerNews.sort((a, b) =>
-      a.created_at < b.created_at ? 1 : -1,    ); 
+      a.created_at < b.created_at ? 1 : -1,
+    );
     return hackerNewsOrdenado;
   }
   @Delete('/delete')
   async delete(@Res() res, @Query('Id') Id) {
-    const deleted =await this.hackerNewsService.delete(Id);
-    if(!deleted )throw new NotFoundException('No se encontro la noticia');{
+    const deleted = await this.hackerNewsService.delete(Id);
+    if (!deleted) throw new NotFoundException('No se encontro la noticia');
+    {
       res.status(HttpStatus.OK).json({
         message: 'Se elimino la noticia',
       });
