@@ -1,0 +1,5 @@
+Comandos para correr la aplicación 
+docker-compose up build
+
+En el archivo docker-compose.yml se encuentra el backend y fronted y la base de datos con las dependencias a instalar y todo.
+El apartado de test no logre realizarlo 

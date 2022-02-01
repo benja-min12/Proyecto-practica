@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  backend:
+    container_name: Backend-Service
+    image: back
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://MongoDB:27017/hacker-news
+    networks:
+      - proyecto_network
+    depends_on:
+      - db  
+  frontend:
+    container_name: Frontend-Service
+    image: front
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 4200:4200
+    links:
+      - backend  
+    networks:
+      - proyecto_network
+    command: npm run start  
+  db:
+    image: mongo
+    container_name: MongoDB
+    networks:
+      - proyecto_network  
+    ports:
+      - "27017:27017"
+networks:
+  proyecto_network:

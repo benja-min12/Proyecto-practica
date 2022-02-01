@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hacker news</title>
+</head>
+
+<body>
+  <div>
+    <header class="grid-item-title">
+      <h1>Hacker News feed</h1>
+      <h3>we ❤️ Hacker News </h3>
+    </header>
+  </div>
+  <div id="container">
+    <div *ngFor="let new of News">
+      <div class="grid-item row">
+        <div>
+          <ul>
+            <li>
+              <a class="grid" href="{{new.url}}">
+                {{new.title}}
+                <p>-{{new.author}}-</p>
+                {{new.created_at | date}}
+              </a>
+            </li>
+          </ul>
+        </div>
+          <button (click)="deleteNews(new._id)">🗑️</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
