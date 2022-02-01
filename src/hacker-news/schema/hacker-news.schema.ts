@@ -1,5 +1,4 @@
-/* eslint-disable prettier/prettier */
-import { Schema} from 'mongoose';
+import { Schema } from 'mongoose';
 
 export const HackerNewsSchema = new Schema({
   title: { type: String, required: true },

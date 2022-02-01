@@ -4,13 +4,11 @@ import {
   HttpStatus,
   NotFoundException,
   Query,
-  Redirect,
 } from '@nestjs/common';
 import { Get } from '@nestjs/common';
 import { CreatedHackernewsDto } from './dto/hacker-news.dto';
 import { HackerNewsService } from './hacker-news.service';
 import { Res } from '@nestjs/common';
-import { NotFoundError } from 'rxjs';
 
 @Controller('hacker-news')
 export class HackerNewsController {

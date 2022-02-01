@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export interface HackerNews {
   readonly _id?: number;
   readonly title: string;

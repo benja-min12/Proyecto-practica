@@ -3,7 +3,7 @@ import { HackerNewsController } from './hacker-news.controller';
 import { HackerNewsService } from './hacker-news.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { HackerNewsSchema } from './schema/hacker-news.schema';
-import { HttpModule, HttpService } from '@nestjs/axios';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
